@@ -5,9 +5,9 @@
 #'
 #' @importFrom opentimeseries is_update_needed update_checksum
 #' @export
-handle_update <- function(key = key) {
+handle_update <- function() {
 
-  checksum_input <- generate_checksum_input(key = key)
+  checksum_input <- generate_checksum_input()
 
   if (!is_update_needed(checksum_input)) {
     message("No update needed, series up-to-date.")
@@ -20,7 +20,7 @@ handle_update <- function(key = key) {
   # Store checksum after successful update
   upd <- update_checksum(checksum_input)
   if(upd){
-    process_data(key = key)
+    process_data()
   } else {
     message("Checksum initialized. Data untouched.")
   }
@@ -37,10 +37,8 @@ handle_update <- function(key = key) {
 #' have the same publication date.
 # @importFrom tsdbapi set_config read_ts
 #' @param key API key for the KOF Time Series Database.
-generate_checksum_input <- function(key = key){
+generate_checksum_input <- function(){
   # need to include user via session
-  set_config(api_key = key)
-  sample_key <- "one.key.in.dataset"
-  ts <- read_ts(ts_keys = sample_key)
+  ts <- alfred::get_fred_series("INDPRO", "indpro")
   return(ts)
 }

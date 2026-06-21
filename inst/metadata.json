@@ -1,0 +1,27 @@
+{
+  "country": "us",
+  "provider": "fred",
+  "dataset": "indpro",
+  "title": {
+    "en": "Industrial Production: Total Index"
+  },
+  "source_name": {
+    "en": "Federal Reserve Bank of St. Louis (FRED)"
+  },
+  "source_url": "https://fred.stlouisfed.org/series/INDPRO",
+  "dataset_frequency": "M",
+  "units": {
+    "all": {
+      "en": "Index 2017=100, Seasonally Adjusted"
+    }
+  },
+  "aggregate": {
+    "all": "mean"
+  },
+  "dim_order": [],
+  "hierarchy": {},
+  "labels": {
+    "dimnames": {}
+  },
+  "update_checksum": "adf7c225fe9c7bf7dd367e2b80381a9f00d05133a0ee26c52995b54c903ab5ae"
+}
